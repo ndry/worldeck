@@ -78,6 +78,7 @@ export function appVersionPlugin(option: {
             if (config === undefined) { return; }
             if (config.command === 'serve') { return; }
 
+            await fs.mkdir(config.build.outDir, { recursive: true });
             await fs.writeFile(
                 path.join(config.build.outDir, "appVersion.txt"),
                 appVersion,
