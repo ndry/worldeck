@@ -28,8 +28,8 @@
 		import { createElement } from "react";
 		import { RecoilRoot } from "recoil";
 
-		import { App } from "./src/app/App";
-		// import { Xyz } from "./src/blah/Xyz";
+		import { App } from "./src/app/app";
+		// import { Xyz } from "./src/blah/xyz";
 
 		const SearchComponent = (() => {
 			const s = new URLSearchParams(location.search);
@@ -38,7 +38,9 @@
 
 		const Component =
 			(import.meta.env.DEV && await (async () => {
-				const path = document.location.pathname;
+				return; // todo: add dash-case support
+
+				const path = location.pathname;
 				if (path === "/") { return; }
 				const name = path.substring(path.lastIndexOf("/") + 1);
 				console.log(path, name);
