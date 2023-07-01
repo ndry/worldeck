@@ -1,6 +1,7 @@
 import { pipe } from "fp-ts/lib/function";
 import * as D from "io-ts/Decoder";
 import { version } from "./version";
+import { decode, eqByKey } from "../utils/keyify-utils";
 
 
 const asIdGuard = <T>(fn: (x: T) => boolean) => fn as (x: T) => x is typeof x;
@@ -42,3 +43,7 @@ export const CodeDecoder = pipe(
     ));
 
 export type Code = D.TypeOf<typeof CodeDecoder>;
+
+export const keyProjectCode = decode(CodeDecoder);
+export const keyifyCode = (x: Code) => JSON.stringify(keyProjectCode(x));
+export const eqCode = eqByKey(keyifyCode);

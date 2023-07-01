@@ -19,6 +19,8 @@ import { muteSoundsRecoil } from "./mute-sounds-recoil";
 import { Twemoji } from "react-emoji-render";
 import { VolumeMute } from "@emotion-icons/fa-solid/VolumeMute";
 import { VolumeUp } from "@emotion-icons/fa-solid/VolumeUp";
+import { RulePreview } from "./rule-preview";
+import { generateRandomRule } from "../ca/generate-random-rule";
 
 // eslint-disable-next-line no-console 
 console.log("appVersion", appVersion);
@@ -84,6 +86,19 @@ export function App() {
             flex: "row",
             overflow: "hidden",
         }}>
+            <div css={{
+                position: "absolute",
+                inset: 0,
+                pointerEvents: "all",
+            }}>
+                <RulePreview code={generateRandomRule(3)} />
+                <RulePreview code={generateRandomRule(3)} />
+                <RulePreview code={generateRandomRule(3)} />
+                <RulePreview code={generateRandomRule(3)} />
+                <RulePreview code={generateRandomRule(3)} />
+                <RulePreview code={generateRandomRule(3)} />
+                <RulePreview code={generateRandomRule(3)} />
+            </div>
             <button // toggle disclaimer 
                 css={{
                     filter: dropShadow5(
