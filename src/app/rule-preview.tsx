@@ -78,17 +78,19 @@ export function RulePreview({
             <div
                 css={[{
                     position: "absolute",
-                    top: "0.8vmin",
-                    right: "0.8vmin",
+                    margin: "3%",
+                    top: 0,
+                    right: 0,
                     borderRadius: "4px",
                     backgroundColor: "#A8E7D8",
-                    padding: "0.2vmin",
+                    padding: "0.5%",
+                    width: "5%",
                 }]}
             >
                 <Star
                     onClick={toggleBookmark}
                     color={isBookmarked ? "#D84949" : "#444444"}
-                    css={[{ width: "2.1vmin" }]}
+                    // css={[{ width: "100%" }]}
                 />
             </div>
             <canvas ref={canvasRef} css={[{ imageRendering: "pixelated" }]} />
